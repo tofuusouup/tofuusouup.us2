@@ -46,7 +46,7 @@ async function updateVisitorCount() {
     console.log("VISITOR COUNTER FUNCTION STARTED");
     const workspace = "tofuusouup";
     const counter = "website-visitors";
-    const url = 'https://api.counterapi.dev/v2/${workspace}/${counter}/up';
+    const url = `https://api.counterapi.dev/v2/${workspace}/${counter}/up`;
     console.log("CounterAPI URL:", url);
     try {
         const response = await fetch(url);

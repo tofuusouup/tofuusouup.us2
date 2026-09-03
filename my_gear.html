@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+    <title>My Gear</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="icon" href="assets/icons/favicon.ico" type="image/png" sizes="32x32">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--this font is for jp-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Pixelify+Sans:wght@400..700&display=swap"
+        rel="stylesheet">
+    <!--this font is for zh-->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+    <!--98.css from Jordan Scales to make it look like w98-->
+    <link rel="stylesheet" href="https://unpkg.com/98.css">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YOUR-ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        
+        gtag('js', new Date());
+        gtag('config', 'G-YOUR-ID');
+    </script>
+    <!--Language toggle-->
+    <script>
+        function switchLanguage(lang) {
+            const allLanguages = ['en', 'zh', 'jp'];
+            allLanguages.forEach(function (l) {
+                const elements = document.querySelectorAll('.lang-' + l);
+                elements.forEach(function (el) {
+                    el.style.display = (l === lang) ? '' : 'none';
+                });
+            });
+        }
+    </script>
+    <style>
+        .panel {
+            display: none;
+        }
+    </style>
+</head>
+    <body>
+        <div id="container">
+            <div id="intro-title">
+                <h2 class="lang lang-en"><img src="assets/icons/hard_disk_drive_cool-0.png"> C:\Users\tofuusouup\MyGear</h2>
+                <h2 class="lang lang-zh" style="display:none;"><img src="assets/icons/hard_disk_drive_cool-0.png"> C:\Users\tofuusouup\MyGear</h2>
+                <h2 class="lang lang-jp" style="display:none;"><img src="assets/icons/hard_disk_drive_cool-0.png"> C:\Users\tofuusouup\MyGear</h2>
+            </div>
+            <div id="nav-placeholder"></div><br>
+        <div id="lang_toggle">
+            <select id="language-select" onchange="switchLanguage(this.value)" class="nav-select">
+                <option value="en">English</option>
+                <option value="zh">中文</option>
+                <option value="jp">日本語</option>
+            </select>
+        </div>
+            <div id="main">
+                <div id="visitor-count-placeholder"></div>
+                <div id="gear"  style="padding-top: 20px;">
+                    <menu role="tablist">
+                        <li role="tab" aria-selected="true" data-tab="1">Desktop</li>
+                        <li role="tab" data-tab="2">PC Specs</li>
+                        <li role="tab" data-tab="3">EDC</li>
+                        <li role="tab" data-tab="4">Camera Equipment</li>
+                    </menu>
+                    <div class="window">
+                        <div class="window-body panel" data-panel="1">
+                            <ul>
+                                <li>LG 32ML600M-B 32-Inch Computer Monitor</li>
+                                <li>IBM Thinkvision 15" LCD POS Monitor 6636-AB1</li>
+                                <li>IBM PS2 Computer Wired Keyboard 104-Key KB-8923</li>
+                                <li>Vintage Apple Keyboard II M0487</li>
+                                <li>8Bitdo Retro Mechanical Programmable Keyboard</li>
+                                <li>Creative Pebble 2.0 USB-Powered Speakers</li>
+                                <li>Logitech Ergo M575 Trackball Mouse</li>
+                            </ul>
+                        </div>
+                        <div class="window-body panel" data-panel="2">
+                            <ul>
+                                <li>CPU: Intel(R) Core(TM) i3-10100 CPU @ 3.60GHz 3.60 GHz</li>
+                                <li>Installed RAM: 32.0GB</li>
+                                <ul>
+                                    <li>Silicon Power DDR4 RAM 16GB Turbine 3200MHz (PC4 25600) 288-pin CL16 1.35V UDIMM Desktop Memory
+                                        Module
+                                        (SP016GXLZU320BDA)</li>
+                                </ul>
+                                <li>GPU: NVIDA GeForce GTX 750 Ti</li>
+                                <li>System type 64-bit operating system, x64-based processor</li>
+                            </ul>
+                        </div>
+                        <div class="window-body panel" data-panel="3">
+                            <ul>
+                                <li>Redmi 4 Pro</li>
+                            </ul>
+                        </div>
+                        <div class="window-body panel" data-panel="4">
+                            <ul>
+                                <li>Software: DaVinci Resolve</li>
+                                <li>Streaming Software: OBS Studio</li>
+                                <li>Fujifilm X10</li>
+                                <li>Sony Handycam DCR-DVD300</li>
+                                <li>Manfrotto MTPIXIMII-B, PIXI Mini Tripod</li>
+                                <li>Manfrotto BeFree MKBFRA4-BH Tripod</li>
+                                <li>Bescor MP-101 Motorized Pan & Tilt Head with Adjustable Speeds</li>
+                                <li>Handheld Stabilizer&sol;Gimbal Handle U-Grip</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <script>
+                        const tabs = document.querySelectorAll('[role="tab"]');
+                        const panels = document.querySelectorAll('.panel');
+                        tabs.forEach(tab => {
+                            tab.addEventListener('click', () => {
+                                tabs.forEach(t => t.setAttribute('aria-selected', 'false'));
+                                panels.forEach(p => p.style.display = 'none');
+                                
+                                tab.setAttribute('aria-selected', 'true');
+                                document.querySelector(`[data-panel="${tab.dataset.tab}"]`).style.display = 'block';
+                            });
+                        });
+                    </script>
+                </div>
+            </div>
+            <div id="footer-placeholder"></div>
+            <script src="js/includes.js"></script>
+        </div>
+    </body>
+</html>

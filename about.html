@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <title>About Me</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="icon" href="assets/icons/favicon.ico" type="image/png" sizes="32x32">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--this font is for jp-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Pixelify+Sans:wght@400..700&display=swap"
+        rel="stylesheet">
+    <!--this font is for zh-->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+    <!--98.css from Jordan Scales to make it look like w98-->
+    <link rel="stylesheet" href="https://unpkg.com/98.css">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YOUR-ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        
+        gtag('js', new Date());
+        gtag('config', 'G-YOUR-ID');
+    </script>
+    <!--Language toggle-->
+    <script>
+        function switchLanguage(lang) {
+            const allLanguages = ['en', 'zh', 'jp'];
+            allLanguages.forEach(function (l) {
+                const elements = document.querySelectorAll('.lang-' + l);
+                elements.forEach(function (el) {
+                    el.style.display = (l === lang) ? '' : 'none';
+                });
+            });
+        }
+    </script>
+</head>
+<body>
+    <div id="container">
+        <div id="intro-title">
+            <h2 class="lang lang-en"><img src="assets/icons/hard_disk_drive_cool-0.png"> C:\Users\tofuusouup\AboutMe</h2>
+            <h2 class="lang lang-zh" style="display:none;"><img src="assets/icons/hard_disk_drive_cool-0.png"> C:\Users\tofuusouup\AboutMe</h2>
+            <h2 class="lang lang-jp" style="display:none;"><img src="assets/icons/hard_disk_drive_cool-0.png"> C:\Users\tofuusouup\AboutMe</h2>
+        </div>
+        <div id="nav-placeholder"></div><br>
+        <div id="lang_toggle">
+            <select id="language-select" onchange="switchLanguage(this.value)" class="nav-select">
+                <option value="en">English</option>
+                <option value="zh">中文</option>
+                <option value="jp">日本語</option>
+            </select>
+        </div>
+        <div id="main">
+            <div id="visitor-count-placeholder"></div>
+            <div class="window" style="margin: 32px; width: 500px; height: fit-content; font-size: large;">
+                <div class="title-bar">
+                    <div class="title-bar-text">
+                        <span class="lang lang-en">Developer Wong's Profile</span>
+                        <span class="lang lang-zh" style="display:none;">開發者王小姐的備註</span>
+                        <span class="lang lang-jp" style="display:none;">開発者・王女史のメモ</span>
+                    </div>
+                    <div class="title-bar-controls">
+                        <button aria-label="Minimize"></button>
+                        <button aria-label="Maximize"></button>
+                        <button aria-label="Close"></button>
+                    </div>
+                </div>
+                <div class="window-body">
+                    <p class="lang lang-en">Hi, my name's Chloe<br>A fourth year university student pursuing a degree in Cybersecurity.</p>
+                    <p class="lang lang-zh" style="display:none;">你好，世界！</p>
+                    <p class="lang lang-jp" style="display:none;">こんにちは、世界！</p>
+                    <button class="button">OK</button>
+                    <button class="button">Cancel</button>
+                </div>
+            </div>
+            <!--Windows 98 style media player-->
+            <div class="window center-media-player" style="width: 600px; margin: 32px;">
+                <div class="title-bar">
+                    <div class="title-bar-text">Windows 98 Video Player</div>
+                    <div class="title-bar-controls">
+                        <button aria-label="Minimize"></button>
+                        <button aria-label="Maximize"></button>
+                        <button aria-label="Close"></button>
+                    </div>
+                </div>
+                <div class="window-body">
+                    <video id="retro-video" width="100%" style="border: 2px solid #000;">
+                        <source src="assets/vid/MTV's Downtown, Episode 01 Sin Bin.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div style="margin-top: 8px;">
+                        <label for="timestamp-slider">⏱ Progress:</label>
+                        <input id="timestamp-slider" type="range" min="0" max="100" value="0" class="slider">
+                    </div>
+                    <div id="buffering-spinner" class="window" style="display: none; position: absolute; width: 200px; padding: 10px;">
+                        <div class="title-bar">
+                            <div class="title-bar-text">Buffering...</div>
+                            <div class="title-bar-controls">
+                                <button aria-label="Close" onclick="hideSpinner()"></button>
+                            </div>
+                        </div>
+                        <div class="window-body">
+                            <img src="assets/icons/hourglass.gif" alt="Buffering" style="width: 32px; height: 32px;">
+                            <p>Please wait...</p>
+                        </div>
+                    </div>
+                    <div style="margin-top: 8px;">
+                        <button class="button" onclick="playVideo()">▶ Play</button>
+                        <button class="button" onclick="pauseVideo()">⏸ Pause</button>
+                        <button class="button" onclick="rewindVideo()">Rewind</button>
+                        <button class="button" onclick="fastForward()">Fast Forward</button>
+                    </div>
+                    <div style="margin-top: 8px;">
+                        <label for="volume-slider">🔈 Volume:</label>
+                        <input id="volume-slider" type="range" min="0" max="1" step="0.01" value="1" class="slider">
+                    </div>
+                    <div class="status-bar">
+                        <p class="status-bar-field">Playing: MTV's Downtown, Episode 01 Sin Bin.mp4</p>
+                        <p class="status-bar-field" id="video-timer">00:00 / 21:35</p>
+                    </div>
+                </div>
+                <script>
+                    const video = document.getElementById("retro-video");
+                    const timerDisplay = document.getElementById("video-timer");
+                    const volumeSlider = document.getElementById("volume-slider");
+                    volumeSlider.addEventListener("input", () => {
+                        video.volume = volumeSlider.value;
+                    });
+                    function playVideo() {
+                        video.play();
+                    }
+                    function pauseVideo() {
+                        video.pause();
+                    }
+                    function rewindVideo() {
+                        video.currentTime = 0;
+                    }
+                    function fastForward() {
+                        video.currentTime += 10;
+                    }
+                    function formatTime(seconds) {
+                        const min = Math.floor(seconds / 60);
+                        const sec = Math.floor(seconds % 60);
+                        return `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
+                    }
+                    video.addEventListener("timeupdate", () => {
+                        const current = formatTime(video.currentTime);
+                        const duration = formatTime(video.duration);
+                        timerDisplay.textContent = `${current} / ${duration}`;
+                    });
+                    video.addEventListener("loadedmetadata", () => {
+                        const current = formatTime(0);
+                        const duration = formatTime(video.duration);
+                        timerDisplay.textContent = `${current} / ${duration}`;
+                    });
+                    function showSpinner() {
+                        document.getElementById("buffering-spinner").style.display = "block";
+                    }
+                    function hideSpinner() {
+                        document.getElementById("buffering-spinner").style.display = "none";
+                    }
+                    // Simulate buffering for 1.5 seconds
+                    function playVideo() {
+                        showSpinner();
+                        setTimeout(() => {
+                            hideSpinner();
+                            video.play();
+                        }, 1500);
+                    }
+                    const timestampSlider = document.getElementById("timestamp-slider");
+                    // Update slider as video plays
+                    video.addEventListener("timeupdate", () => {
+                        if (!timestampSlider.dragging) {
+                            const progress = (video.currentTime / video.duration) * 100;
+                            timestampSlider.value = progress;
+                    }
+                    });
+                    // Seek when slider is changed
+                    timestampSlider.addEventListener("input", () => {
+                        timestampSlider.dragging = true;
+                        const seekTime = (timestampSlider.value / 100) * video.duration;
+                        video.currentTime = seekTime;
+                    });
+                    timestampSlider.addEventListener("change", () => {
+                        timestampSlider.dragging = false;
+                    });
+                </script>
+            </div>
+        </div>
+        <div id="footer-placeholder"></div>
+        <script src="js/includes.js"></script>
+    </div>
+</body>
+</html>

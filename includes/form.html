@@ -1,0 +1,147 @@
+<div class="msn-window">
+    <div class="title-bar">
+        <img src="assets/icons/MSN_Messenger_2000_29.webp" style="width: 14px; height: 14px;">
+        <div class="title-bar-text">MSN Messenger</div>
+        <div class="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
+        </div>
+    </div>
+    <!-- Menu bar -->
+    <div class="msn-menu-bar">
+        <span><u>F</u>ile</span>
+        <span><u>A</u>ctions</span>
+        <span><u>T</u>ools</span>
+        <span><u>H</u>elp</span>
+    </div>
+    <!-- Main MSN Messenger area -->
+    <div class="msn-content">
+        <!-- Status area -->
+        <div class="msn-profile">
+            <div class="msn-avatar">
+                <img src="assets/icons/MSN_Messenger_2000_29.webp">
+            </div>
+            <div class="msn-profile-info">
+                <strong>Contact Me</strong>
+                <span>Website Visitor</span>
+                <span class="msn-status">
+                    ● Online
+                </span>
+            </div>
+        </div>
+        <!-- Message notification -->
+        <div class="msn-notification">
+            ✉ <u>Send me a message</u>
+        </div>
+        <!-- Form -->
+        <div class="msn-form-area">
+            <div class="msn-form-title">
+                New Message
+            </div>
+            <form id="contact-form">
+                <label for="name">Name:</label>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    maxlength="100"
+                >
+                <label for="email">Email:</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    maxlength="254"
+                >
+                <label for="message">Message:</label>
+                <textarea
+                    id="message"
+                    name="message"
+                    rows="7"
+                    maxlength="2000"
+                    required
+                ></textarea>
+                <!-- Honeypot anti-spam field -->
+                <div style="display:none;">
+                    <label for="website">Website</label>
+                    <input
+                        type="text"
+                        id="website"
+                        name="website"
+                        tabindex="-1"
+                        autocomplete="off"
+                    >
+                </div>
+                <div class="msn-send-area">
+                    <button type="submit" class="msn-send-button">
+                        Send Message
+                    </button>
+                    <span id="form-status"></span>
+                </div>
+            </form>
+        </div>
+        <!-- MSN-style footer -->
+        <div class="msn-footer">
+            <div class="msn-footer-brand">
+                <img src="assets/icons/Msn-messenger-7.5.webp">
+                <strong>MSN Messenger</strong>
+            </div>
+            <div class="msn-footer-msn">
+                Microsoft
+                <strong>.NET</strong>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--
+
+<div class="window">
+    <div class="title-bar">
+        <img src="assets/icons/MSN_Messenger_2000_29.webp" style="width: 14px; height: 14px;">
+        <div class="title-bar-text">MSN Messenger</div>
+        <div class="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
+        </div>
+    </div>
+    <div class="msn-menu-bar">
+        <span><u>F</u>ile</span>
+        <span><u>A</u>ctions</span>
+        <span><u>T</u>ools</span>
+        <span><u>H</u>elp</span>
+    </div>
+    <div class="window-body">
+        <form id="contact-form">
+            <p>
+                <label for="name">Name:</label><br>
+                <input type="text"
+                id="name"
+                name="name"
+                style="width: 30ch;"
+                required maxlength="100"
+            >
+            </p>
+            <p>
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" style="width: 30ch;" required maxlength="254">
+            </p>
+            <p>
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message" rows="10" cols="31" maxlength="2000" required></textarea>
+            </p>
+            <div style="display:none;">
+                <label for="website">Website</label>
+                <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+            </div>
+            <button type="submit" class="button">Send Message</button>
+            <p id="form-status"></p>
+        </form>
+    </div>
+</div>
+
+-->

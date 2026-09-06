@@ -24,6 +24,19 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("footer-placeholder").innerHTML = data;
         })
         .catch(error => console.error("Error loading footer:", error));
+    
+    // Load Form
+    fetch("includes/form.html")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Form file could not be loaded.");
+            }
+            return response.text();
+        })
+        .then(data => {
+            document.getElementById("form-placeholder").innerHTML = data;
+        })
+        .catch(error => console.error("Error loading form:", error));
 
     // Load Visitor Counter
     fetch("includes/visitor_count.html")
@@ -64,3 +77,26 @@ async function updateVisitorCount() {
         document.getElementById("visitor_num").textContent = "000000";
     }
 }
+
+// Contact Form Test
+document.addEventListener("submit", function (event) {
+    if (event.target.id !== "contact-form") {
+        return;
+    }
+
+    event.preventDefault();
+
+    const form = event.target;
+
+    const name = form.name.value;
+    const email = form.email.value;
+    const message = form.message.value;
+
+    console.log("CONTACT FORM TEST");
+    console.log("Name:", name);
+    console.log("Email:", email);
+    console.log("Message:", message);
+
+    document.getElementById("form-status").textContent =
+        "Message captured successfully!";
+});

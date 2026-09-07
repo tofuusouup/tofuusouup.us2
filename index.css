@@ -304,3 +304,335 @@ body {
     font-size: 18px;
     font-weight: normal;
 }
+
+/* =========================================================
+   WINDOWS 98 DESKTOP - ABOUT ME PAGE
+   ========================================================= */
+.win98-desktop {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+    background: #008080;
+    overflow: hidden;
+    padding-bottom: 28px;
+}
+/* DESKTOP ICONS */
+.desktop-icons {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.desktop-icon {
+    width: 75px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 3px;
+    border: 1px solid transparent;
+    background: transparent;
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    cursor: default;
+}
+.desktop-icon:hover {
+    border: 1px dotted white;
+    background: rgba(0, 0, 128, 0.25);
+}
+.desktop-icon img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+.desktop-icon span {
+    text-shadow:
+        1px 1px #000;
+}
+/* =========================================================
+   MAIN PORTFOLIO WINDOW
+   ========================================================= */
+.about-main-window {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -52%);
+    width: 700px;
+    max-width: calc(100vw - 180px);
+    height: 570px;
+    max-height: calc(100vh - 90px);
+    display: flex;
+    flex-direction: column;
+}
+/* =========================================================
+   TABS
+   ========================================================= */
+
+.portfolio-tabs {
+    display: flex;
+    align-items: flex-end;
+    gap: 2px;
+    padding: 5px 5px 0;
+    background: #c0c0c0;
+    border-left: 1px solid white;
+    border-right: 1px solid #808080;
+}
+
+.portfolio-tab {
+    position: relative;
+    padding: 4px 12px;
+    min-height: 25px;
+    font-size: 12px;
+    background: #c0c0c0;
+    border: 1px solid #808080;
+    border-bottom: none;
+    cursor: pointer;
+}
+.portfolio-tab:hover {
+    background: #d4d0c8;
+}
+.portfolio-tab.active {
+    background: #fff;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #808080;
+    z-index: 2;
+}
+/* =========================================================
+   PORTFOLIO CONTENT
+   ========================================================= */
+.portfolio-content {
+    flex: 1;
+    overflow-y: auto;
+    background: #fff;
+    padding: 18px;
+}
+.portfolio-page {
+    display: none;
+}
+.portfolio-page.active {
+    display: block;
+}
+/* =========================================================
+   PROFILE
+   ========================================================= */
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.profile-icon {
+    width: 64px;
+    height: 64px;
+}
+.profile-header h2 {
+    margin: 0 0 5px;
+}
+.profile-header p {
+    margin: 0;
+}
+/* =========================================================
+   INTERESTS
+   ========================================================= */
+.interest-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.interest-list span {
+    padding: 4px 8px;
+    background: #eee;
+    border: 1px solid #aaa;
+}
+/* =========================================================
+   PROJECT ENTRIES
+   ========================================================= */
+.project-entry {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    margin-bottom: 8px;
+    border: 1px solid transparent;
+}
+.project-entry:hover {
+    background: #000080;
+    color: white;
+}
+.project-entry img {
+    width: 32px;
+    height: 32px;
+}
+.project-entry p {
+    margin: 4px 0 0;
+}
+/* STATUS BAR */
+.portfolio-status {
+    margin: 0 3px 3px;
+}
+/* LANGUAGE SELECTOR */
+.desktop-language {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+.desktop-language select {
+    font-size: 11px;
+}
+/* TASKBAR */
+.taskbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    padding: 2px;
+    box-sizing: border-box;
+    background: #c0c0c0;
+    border-top: 2px solid white;
+    box-shadow:
+        0 -1px #808080;
+    z-index: 1000;
+}
+/* Start button */
+.start-button {
+    height: 23px;
+    min-width: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    font-weight: bold;
+    font-size: 12px;
+    background: #c0c0c0;
+    border: 2px outset #fff;
+}
+.start-button:active {
+    border-style: inset;
+}
+/* Quick launch */
+.quick-launch {
+    display: flex;
+    gap: 2px;
+    padding: 0 3px;
+    border-left: 2px solid #808080;
+    border-right: 2px solid white;
+}
+.quick-launch button {
+    width: 22px;
+    height: 22px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+/* Taskbar application */
+.taskbar-window {
+    height: 23px;
+    min-width: 180px;
+    max-width: 300px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: left;
+    padding: 0 8px;
+    font-size: 11px;
+    background: #c0c0c0;
+    border: 2px inset #fff;
+}
+/* Clock */
+.taskbar-clock {
+    margin-left: auto;
+    height: 21px;
+    min-width: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 6px;
+    border: 2px inset #fff;
+    font-size: 11px;
+}
+/* START MENU */
+.start-menu {
+    position: fixed;
+    bottom: 28px;
+    left: 2px;
+    width: 220px;
+    display: none;
+    background: #c0c0c0;
+    border: 2px outset #fff;
+    box-shadow:
+        2px 2px #000;
+    z-index: 2000;
+}
+.start-menu.open {
+    display: flex;
+}
+.start-menu-banner {
+    width: 28px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 10px;
+    background: #000080;
+    color: white;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-weight: bold;
+}
+.start-menu-items {
+    flex: 1;
+    padding: 4px;
+}
+.start-menu-items button {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    background: transparent;
+    text-align: left;
+    font-size: 11px;
+}
+.start-menu-items button:hover {
+    background: #000080;
+    color: white;
+}
+.start-menu-items hr {
+    border: none;
+    border-top: 1px solid #808080;
+    border-bottom: 1px solid white;
+}
+/* MOBILE */
+@media (max-width: 800px) {
+    .about-main-window {
+        width: calc(100vw - 100px);
+        max-width: none;
+        height: calc(100vh - 100px);
+    }
+    .portfolio-tabs {
+        overflow-x: auto;
+    }
+    .portfolio-tab {
+        white-space: nowrap;
+    }
+}
+@media (max-width: 600px) {
+    .desktop-icons {
+        left: 5px;
+        top: 10px;
+    }
+    .desktop-language {
+        right: 5px;
+        top: 10px;
+    }
+    .about-main-window {
+        left: 55%;
+        width: calc(100vw - 90px);
+    }
+}

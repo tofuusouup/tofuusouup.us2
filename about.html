@@ -11,8 +11,7 @@
     <!--this font is for jp-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Pixelify+Sans:wght@400..700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
     <!--this font is for zh-->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
     <!--98.css from Jordan Scales to make it look like w98-->
@@ -22,7 +21,7 @@
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
-        
+
         gtag('js', new Date());
         gtag('config', 'G-YOUR-ID');
     </script>
@@ -40,159 +39,431 @@
     </script>
 </head>
 <body>
-    <div id="container">
-        <div id="intro-title">
-            <h2 class="lang lang-en"><img src="assets/icons/hard_disk_drive_cool-0.png"> C:\Users\tofuusouup\AboutMe</h2>
-            <h2 class="lang lang-zh" style="display:none;"><img src="assets/icons/hard_disk_drive_cool-0.png"> C:\Users\tofuusouup\AboutMe</h2>
-            <h2 class="lang lang-jp" style="display:none;"><img src="assets/icons/hard_disk_drive_cool-0.png"> C:\Users\tofuusouup\AboutMe</h2>
-        </div>
-        <div id="nav-placeholder"></div><br>
-        <div id="lang_toggle">
-            <select id="language-select" onchange="switchLanguage(this.value)" class="nav-select">
-                <option value="en">English</option>
-                <option value="zh">中文</option>
-                <option value="jp">日本語</option>
-            </select>
-        </div>
-        <div id="main">
-            <div id="visitor-count-placeholder"></div>
-            <div class="window" style="margin: 32px; width: 500px; height: fit-content; font-size: large;">
-                <div class="title-bar">
-                    <div class="title-bar-text">
-                        <span class="lang lang-en">Developer Wong's Profile</span>
-                        <span class="lang lang-zh" style="display:none;">開發者王小姐的備註</span>
-                        <span class="lang lang-jp" style="display:none;">開発者・王女史のメモ</span>
-                    </div>
-                    <div class="title-bar-controls">
-                        <button aria-label="Minimize"></button>
-                        <button aria-label="Maximize"></button>
-                        <button aria-label="Close"></button>
-                    </div>
-                </div>
-                <div class="window-body">
-                    <p class="lang lang-en">Hi, my name's Chloe<br>A fourth year university student pursuing a degree in Cybersecurity.</p>
-                    <p class="lang lang-zh" style="display:none;">你好，世界！</p>
-                    <p class="lang lang-jp" style="display:none;">こんにちは、世界！</p>
-                    <button class="button">OK</button>
-                    <button class="button">Cancel</button>
-                </div>
-            </div>
-            <!--Windows 98 style media player-->
-            <div class="window center-media-player" style="width: 600px; margin: 32px;">
-                <div class="title-bar">
-                    <div class="title-bar-text">Windows 98 Video Player</div>
-                    <div class="title-bar-controls">
-                        <button aria-label="Minimize"></button>
-                        <button aria-label="Maximize"></button>
-                        <button aria-label="Close"></button>
-                    </div>
-                </div>
-                <div class="window-body">
-                    <video id="retro-video" width="100%" style="border: 2px solid #000;">
-                        <source src="assets/vid/MTV's Downtown, Episode 01 Sin Bin.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <div style="margin-top: 8px;">
-                        <label for="timestamp-slider">⏱ Progress:</label>
-                        <input id="timestamp-slider" type="range" min="0" max="100" value="0" class="slider">
-                    </div>
-                    <div id="buffering-spinner" class="window" style="display: none; position: absolute; width: 200px; padding: 10px;">
-                        <div class="title-bar">
-                            <div class="title-bar-text">Buffering...</div>
-                            <div class="title-bar-controls">
-                                <button aria-label="Close" onclick="hideSpinner()"></button>
-                            </div>
-                        </div>
-                        <div class="window-body">
-                            <img src="assets/icons/hourglass.gif" alt="Buffering" style="width: 32px; height: 32px;">
-                            <p>Please wait...</p>
-                        </div>
-                    </div>
-                    <div style="margin-top: 8px;">
-                        <button class="button" onclick="playVideo()">▶ Play</button>
-                        <button class="button" onclick="pauseVideo()">⏸ Pause</button>
-                        <button class="button" onclick="rewindVideo()">Rewind</button>
-                        <button class="button" onclick="fastForward()">Fast Forward</button>
-                    </div>
-                    <div style="margin-top: 8px;">
-                        <label for="volume-slider">🔈 Volume:</label>
-                        <input id="volume-slider" type="range" min="0" max="1" step="0.01" value="1" class="slider">
-                    </div>
-                    <div class="status-bar">
-                        <p class="status-bar-field">Playing: MTV's Downtown, Episode 01 Sin Bin.mp4</p>
-                        <p class="status-bar-field" id="video-timer">00:00 / 21:35</p>
-                    </div>
-                </div>
-                <script>
-                    const video = document.getElementById("retro-video");
-                    const timerDisplay = document.getElementById("video-timer");
-                    const volumeSlider = document.getElementById("volume-slider");
-                    volumeSlider.addEventListener("input", () => {
-                        video.volume = volumeSlider.value;
-                    });
-                    function playVideo() {
-                        video.play();
-                    }
-                    function pauseVideo() {
-                        video.pause();
-                    }
-                    function rewindVideo() {
-                        video.currentTime = 0;
-                    }
-                    function fastForward() {
-                        video.currentTime += 10;
-                    }
-                    function formatTime(seconds) {
-                        const min = Math.floor(seconds / 60);
-                        const sec = Math.floor(seconds % 60);
-                        return `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
-                    }
-                    video.addEventListener("timeupdate", () => {
-                        const current = formatTime(video.currentTime);
-                        const duration = formatTime(video.duration);
-                        timerDisplay.textContent = `${current} / ${duration}`;
-                    });
-                    video.addEventListener("loadedmetadata", () => {
-                        const current = formatTime(0);
-                        const duration = formatTime(video.duration);
-                        timerDisplay.textContent = `${current} / ${duration}`;
-                    });
-                    function showSpinner() {
-                        document.getElementById("buffering-spinner").style.display = "block";
-                    }
-                    function hideSpinner() {
-                        document.getElementById("buffering-spinner").style.display = "none";
-                    }
-                    // Simulate buffering for 1.5 seconds
-                    function playVideo() {
-                        showSpinner();
-                        setTimeout(() => {
-                            hideSpinner();
-                            video.play();
-                        }, 1500);
-                    }
-                    const timestampSlider = document.getElementById("timestamp-slider");
-                    // Update slider as video plays
-                    video.addEventListener("timeupdate", () => {
-                        if (!timestampSlider.dragging) {
-                            const progress = (video.currentTime / video.duration) * 100;
-                            timestampSlider.value = progress;
-                    }
-                    });
-                    // Seek when slider is changed
-                    timestampSlider.addEventListener("input", () => {
-                        timestampSlider.dragging = true;
-                        const seekTime = (timestampSlider.value / 100) * video.duration;
-                        video.currentTime = seekTime;
-                    });
-                    timestampSlider.addEventListener("change", () => {
-                        timestampSlider.dragging = false;
-                    });
-                </script>
-            </div>
-        </div>
-        <div id="footer-placeholder"></div>
-        <script src="js/includes.js"></script>
+<div class="win98-desktop">
+    <!--DESKTOP ICONS-->
+    <div class="desktop-icons">
+        <!-- My Computer -->
+        <button
+            class="desktop-icon"
+            onclick="openTab('about')"
+        >
+            <img src="assets/icons/computer_explorer_cool-0.png" alt="My Computer">
+            <span>My Computer</span>
+        </button>
+        <!-- Projects -->
+        <button
+            class="desktop-icon"
+            onclick="openTab('projects')"
+        >
+            <img src="assets/icons/directory_open_file_mydocs-4.png" alt="Projects">
+            <span>My Projects</span>
+        </button>
+        <!-- Recycle Bin -->
+        <button
+            class="desktop-icon"
+            onclick="openRecycleBin()"
+        >
+            <img src="assets/icons/recycle_bin_empty-4.png" alt="Recycle Bin">
+            <span>Recycle Bin</span>
+        </button>
+        <!-- Network Neighborhood -->
+        <button
+            class="desktop-icon"
+            onclick="openNetwork()"
+        >
+            <img src="assets/icons/network_normal_two_pcs-4.png" alt="Network Neighborhood">
+            <span>Network Neighborhood</span>
+        </button>
     </div>
+    <!--MAIN WINDOW-->
+    <div
+        class="window about-main-window"
+        id="portfolio-window"
+    >
+        <!-- Title Bar -->
+        <div class="title-bar">
+            <div class="title-bar-text">
+                <span class="lang lang-en">Developer Wong's Profile</span>
+                <span class="lang lang-zh" style="display:none;">開發者王小姐的個人資料</span>
+                <span class="lang lang-jp" style="display:none;">開発者・王女史のプロフィール</span>
+            </div>
+            <div class="title-bar-controls">
+                <button aria-label="Minimize"></button>
+                <button aria-label="Maximize"></button>
+                <button aria-label="Close" onclick="closePortfolio()"></button>
+            </div>
+        </div>
+        <!--TABS-->
+        <div class="portfolio-tabs">
+            <button
+                class="portfolio-tab active"
+                data-tab="about"
+                onclick="openTab('about')"
+            >
+                About Me
+            </button>
+            <button
+                class="portfolio-tab"
+                data-tab="projects"
+                onclick="openTab('projects')"
+            >
+                Projects
+            </button>
+            <button
+                class="portfolio-tab"
+                data-tab="academics"
+                onclick="openTab('academics')"
+            >
+                Academics
+            </button>
+        </div>
+        <!--WINDOW CONTENT-->
+        <div class="window-body portfolio-content">
+            <!--ABOUT ME-->
+            <section
+                class="portfolio-page active"
+                id="tab-about"
+            >
+                <div class="profile-header">
+                    <img
+                        src="assets/icons/user.png"
+                        alt=""
+                        class="profile-icon"
+                    >
+                    <div>
+                        <h2>
+                            Hi, I'm Chloe!
+                        </h2>
+                        <p>
+                            Welcome to my little corner
+                            of the Internet.
+                        </p>
+                    </div>
+                </div>
+                <hr>
+                <p class="lang lang-en">
+                    I'm a fourth year university student
+                    pursuing a degree in Cybersecurity.
+                    <br><br>
+                    I'm interested in technology, vintage
+                    computing, web development, programming,
+                    networking, and cybersecurity.
+                    <br><br>
+                    This website is designed to look and
+                    feel like a computer from the late
+                    1990s / early 2000s because, apparently,
+                    I really like old computers.
+                </p>
+                <p
+                    class="lang lang-zh"
+                    style="display:none;"
+                >
+                    你好，我叫 Chloe！
+                    <br><br>
+                    我是一名正在攻讀網路安全學位的
+                    大學四年級學生。
+                </p>
+                <p
+                    class="lang lang-jp"
+                    style="display:none;"
+                >
+                    こんにちは、Chloeです！
+                    <br><br>
+                    サイバーセキュリティを専攻している
+                    大学4年生です。
+                </p>
+                <fieldset>
+                    <legend>
+                        Interests
+                    </legend>
+                    <div class="interest-list">
+                        <span>💾 Vintage Computing</span>
+                        <span>🔐 Cybersecurity</span>
+                        <span>💻 Web Development</span>
+                        <span>⚙️ Programming</span>
+                        <span>🌐 Networking</span>
+                    </div>
+                </fieldset>
+            </section>
+            <!--PROJECTS-->
+            <section
+                class="portfolio-page"
+                id="tab-projects"
+            >
+                <h2>
+                    My Projects
+                </h2>
+                <p>
+                    A collection of things I've built,
+                    experimented with, or am currently
+                    working on.
+                </p>
+                <fieldset>
+                    <legend>
+                        Project Directory
+                    </legend>
+                    <div class="project-entry">
+                        <img
+                            src="assets/icons/hard_disk_drive_cool-0.png"
+                            alt=""
+                        >
+                        <div>
+                            <strong>
+                                Windows 98 Portfolio
+                            </strong>
+                            <p>
+                                This website!
+                            </p>
+                        </div>
+                    </div>
+                    <div class="project-entry">
+                        <img
+                            src="assets/icons/hard_disk_drive_cool-0.png"
+                            alt=""
+                        >
+                        <div>
+                            <strong>
+                                PowerShell System Dashboard
+                            </strong>
+                            <p>
+                                A PowerShell project for
+                                displaying Windows system
+                                information.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="project-entry">
+                        <img
+                            src="assets/icons/hard_disk_drive_cool-0.png"
+                            alt=""
+                        >
+                        <div>
+                            <strong>
+                                ESP32 Projects
+                            </strong>
+                            <p>
+                                Hardware, programming,
+                                networking, and cybersecurity
+                                experiments.
+                            </p>
+                        </div>
+                    </div>
+                </fieldset>
+            </section>
+            <!--POWERSHELL-->
+            <section
+                class="portfolio-page"
+                id="tab-powershell"
+            >
+                <h2>
+                    PowerShell Projects
+                </h2>
+                <p>
+                    Windows automation and system
+                    administration experiments.
+                </p>
+                <fieldset>
+                    <legend>
+                        SystemInfo.ps1
+                    </legend>
+                    <p>
+                        A PowerShell system information
+                        dashboard designed to collect useful
+                        information about a Windows machine.
+                    </p>
+                    <ul>
+                        <li>Operating System</li>
+                        <li>Computer Name</li>
+                        <li>CPU Information</li>
+                        <li>Memory Information</li>
+                        <li>Disk Information</li>
+                    </ul>
+                </fieldset>
+            </section>
+            <!--ESP32-->
+            <section
+                class="portfolio-page"
+                id="tab-esp32"
+            >
+                <h2>
+                    ESP32 Projects
+                </h2>
+                <p>
+                    Hardware experiments using the ESP32.
+                </p>
+                <fieldset>
+                    <legend>
+                        ESP32_Project
+                    </legend>
+                    <p>
+                        An ongoing collection of experiments
+                        involving microcontrollers,
+                        networking, programming, and
+                        cybersecurity.
+                    </p>
+                </fieldset>
+            </section>
+            <!--WEB DEVELOPMENT-->
+            <section
+                class="portfolio-page"
+                id="tab-web"
+            >
+                <h2>
+                    Web Development
+                </h2>
+                <p>
+                    Websites and web-based experiments.
+                </p>
+                <fieldset>
+                    <legend>
+                        This Website
+                    </legend>
+                    <p>
+                        A retro Windows 98 inspired
+                        portfolio built with:
+                    </p>
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                        <li>98.css</li>
+                        <li>GitHub Pages</li>
+                    </ul>
+                </fieldset>
+            </section>
+            <!--CYBERSECURITY-->
+            <section
+                class="portfolio-page"
+                id="tab-cybersecurity"
+            >
+                <h2>
+                    Cybersecurity
+                </h2>
+                <p>
+                    Security-related projects,
+                    experiments, and learning.
+                </p>
+                <fieldset>
+                    <legend>
+                        Security Lab
+                    </legend>
+                    <p>
+                        This section will contain
+                        cybersecurity projects,
+                        labs, tools, and experiments
+                        as I continue learning.
+                    </p>
+                </fieldset>
+            </section>
+        </div>
+        <!--STATUS BAR-->
+        <div class="status-bar portfolio-status">
+            <p class="status-bar-field">
+                Ready
+            </p>
+            <p
+                class="status-bar-field"
+                id="status-project"
+            >
+                About Me
+            </p>
+            <p class="status-bar-field">
+                1 object
+            </p>
+        </div>
+    </div>
+    <!--LANGUAGE SELECTOR-->
+    <div class="desktop-language">
+        <select
+            id="language-select"
+            onchange="switchLanguage(this.value)"
+        >
+            <option value="en">
+                English
+            </option>
+            <option value="zh">
+                中文
+            </option>
+            <option value="jp">
+                日本語
+            </option>
+        </select>
+    </div>
+    <!--TASKBAR-->
+    <div class="taskbar">
+        <!-- Start -->
+        <button
+            class="start-button"
+            onclick="toggleStartMenu()"
+        >
+            <strong>
+                ▣
+            </strong>
+            Start
+        </button>
+        <!-- Quick Launch -->
+        <div class="quick-launch">
+            <button
+                title="My Computer"
+                onclick="openTab('about')"
+            >
+                💻
+            </button>
+            <button
+                title="Projects"
+                onclick="openTab('projects')"
+            >
+                📁
+            </button>
+        </div>
+        <!-- Open Application -->
+        <button
+            class="taskbar-window active"
+            onclick="restorePortfolio()"
+        >
+            💾 Developer Wong's Profile
+        </button>
+        <!-- Clock -->
+        <div
+            class="taskbar-clock"
+            id="taskbar-clock"
+        >
+            12:00 PM
+        </div>
+    </div>
+    <!--START MENU-->
+    <div
+        class="start-menu"
+        id="start-menu"
+    >
+        <div class="start-menu-banner">
+            Windows 98
+        </div>
+        <div class="start-menu-items">
+            <button onclick="openTab('about')">
+                💻
+                My Computer
+            </button>
+            <button onclick="openTab('projects')">
+                📁
+                My Projects
+            </button>
+            <button onclick="openTab('powershell')">
+                >_
+                PowerShell
+            </button>
+            <button onclick="openTab('cybersecurity')">
+                🔐
+                Cybersecurity
+            </button>
+            <hr>
+            <button onclick="toggleStartMenu()">
+                ⏻
+                Shut Down...
+            </button>
+        </div>
+    </div>
+</div>
+<script src="js/about.js"></script>
 </body>
 </html>

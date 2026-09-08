@@ -327,22 +327,17 @@ body {
     gap: 20px;
 }
 .desktop-icon {
-    width: 75px;
+    width: 90px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 4px;
-    padding: 3px;
-    border: 1px solid transparent;
+    padding-top: 10px;
+    padding-bottom: 10px;
     background: transparent;
     color: white;
     font-size: 12px;
     text-align: center;
-    cursor: default;
-}
-.desktop-icon:hover {
-    border: 1px dotted white;
-    background: rgba(0, 0, 128, 0.25);
 }
 .desktop-icon img {
     width: 32px;

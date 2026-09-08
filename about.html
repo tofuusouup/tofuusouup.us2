@@ -45,18 +45,26 @@
         <!-- My Computer -->
         <button
             class="desktop-icon"
-            onclick="openTab('about')"
+            onclick="openTab('My Computer')"
         >
             <img src="assets/icons/computer_explorer_cool-0.png" alt="My Computer">
             <span>My Computer</span>
         </button>
-        <!-- Projects -->
+        <!-- My Documents -->
         <button
             class="desktop-icon"
-            onclick="openTab('projects')"
+            onclick="openTab('my documents')"
         >
-            <img src="assets/icons/directory_open_file_mydocs-4.png" alt="Projects">
-            <span>My Projects</span>
+            <img src="assets/icons/directory_open_file_mydocs-4.png" alt="My Documents">
+            <span>My Documents</span>
+        </button>
+        <!-- Internet Explorer -->
+        <button
+            class="desktop-icon"
+            onclick="openRecycleBin()"
+        >
+            <img src="assets/icons/msie1-5.png" alt="Internet Explorer">
+            <span>Internet Explorer</span>
         </button>
         <!-- Recycle Bin -->
         <button
@@ -83,9 +91,9 @@
         <!-- Title Bar -->
         <div class="title-bar">
             <div class="title-bar-text">
-                <span class="lang lang-en">Developer Wong's Profile</span>
-                <span class="lang lang-zh" style="display:none;">開發者王小姐的個人資料</span>
-                <span class="lang lang-jp" style="display:none;">開発者・王女史のプロフィール</span>
+                <span class="lang lang-en"><img src="assets/icons/html-2.png" style="width: 16px; height: 16px;">Developer Wong's Profile</span>
+                <span class="lang lang-zh" style="display:none;"><img src="assets/icons/html-2.png" style="width: 16px; height: 16px;">開發者王小姐的個人資料</span>
+                <span class="lang lang-jp" style="display:none;"><img src="assets/icons/html-2.png" style="width: 16px; height: 16px;">開発者・王女史のプロフィール</span>
             </div>
             <div class="title-bar-controls">
                 <button aria-label="Minimize"></button>
@@ -125,48 +133,27 @@
                 id="tab-about"
             >
                 <div class="profile-header">
-                    <img
-                        src="assets/icons/user.png"
-                        alt=""
-                        class="profile-icon"
-                    >
+                    <img src="assets/icons/favicon.ico" alt="My profile picture" class="profile-icon">
                     <div>
-                        <h2>
-                            Hi, I'm Chloe!
-                        </h2>
-                        <p>
-                            Welcome to my little corner
-                            of the Internet.
-                        </p>
+                        <h2>Hi, I'm Chloe!</h2>
+                        <p>Welcome to my little corner of the Internet.</p>
                     </div>
                 </div>
                 <hr>
                 <p class="lang lang-en">
-                    I'm a fourth year university student
-                    pursuing a degree in Cybersecurity.
+                    I'm a full-time student in my senior year pursuing a degree in Cybersecurity at Western Connecticut State University.
                     <br><br>
-                    I'm interested in technology, vintage
-                    computing, web development, programming,
-                    networking, and cybersecurity.
+                    I'm interested in IT operations/services, web development, programming, data network, vintage computing, and video games.
                     <br><br>
-                    This website is designed to look and
-                    feel like a computer from the late
-                    1990s / early 2000s because
-                    I really appreciate old computers.
+                    This website is designed to look and feel like a computer from the late 1990s / early 2000s because that's what I grew up on.
                 </p>
-                <p
-                    class="lang lang-zh"
-                    style="display:none;"
-                >
+                <p class="lang lang-zh" style="display:none;">
                     你好，我叫 Chloe！
                     <br><br>
                     我是一名正在攻讀網路安全學位的
                     大學四年級學生。
                 </p>
-                <p
-                    class="lang lang-jp"
-                    style="display:none;"
-                >
+                <p class="lang lang-jp" style="display:none;">
                     こんにちは、Chloeです！
                     <br><br>
                     サイバーセキュリティを専攻している
@@ -174,14 +161,15 @@
                 </p>
                 <fieldset>
                     <legend>
-                        Interests
+                        Interests & Hobbies
                     </legend>
                     <div class="interest-list">
-                        <span>💾 Vintage Computing</span>
-                        <span>🔐 Cybersecurity</span>
-                        <span>💻 Web Development</span>
-                        <span>⚙️ Programming</span>
-                        <span>🌐 Networking</span>
+                        <span>Video Games [Action & Sandbox/Open World]</span>
+                        <span>Computers from the late 80s to early 2000s</span>
+                        <span>Old school film & cameras</span>
+                        <span>Skateboarding & biking</span>
+                        <span>Collecting small figures & Pokémon cards</span>
+                        <span>Collecting and restoring video game consoles</span>
                     </div>
                 </fieldset>
             </section>
@@ -193,11 +181,7 @@
                 <h2>
                     My Projects
                 </h2>
-                <p>
-                    A collection of things I've built,
-                    experimented with, or am currently
-                    working on.
-                </p>
+                <p>A collection of things I've built, experimented with, or am currently working on.</p>
                 <fieldset>
                     <legend>
                         Project Directory
@@ -226,9 +210,7 @@
                                 PowerShell System Dashboard
                             </strong>
                             <p>
-                                A PowerShell project for
-                                displaying Windows system
-                                information.
+                                A PowerShell project for displaying Windows system information.
                             </p>
                         </div>
                     </div>
@@ -242,9 +224,7 @@
                                 ESP32 Projects
                             </strong>
                             <p>
-                                Hardware, programming,
-                                networking, and cybersecurity
-                                experiments.
+                                Hardware, programming, networking, and cybersecurity experiments.
                             </p>
                         </div>
                     </div>
@@ -259,17 +239,14 @@
                     PowerShell Projects
                 </h2>
                 <p>
-                    Windows automation and system
-                    administration experiments.
+                    Windows automation and system administration experiments.
                 </p>
                 <fieldset>
                     <legend>
                         SystemInfo.ps1
                     </legend>
                     <p>
-                        A PowerShell system information
-                        dashboard designed to collect useful
-                        information about a Windows machine.
+                        A PowerShell system information dashboard designed to collect useful information about a Windows machine.
                     </p>
                     <ul>
                         <li>Operating System</li>
@@ -296,10 +273,7 @@
                         ESP32_Project
                     </legend>
                     <p>
-                        An ongoing collection of experiments
-                        involving microcontrollers,
-                        networking, programming, and
-                        cybersecurity.
+                        An ongoing collection of experiments involving microcontrollers, networking, programming, and cybersecurity.
                     </p>
                 </fieldset>
             </section>
@@ -319,8 +293,7 @@
                         This Website
                     </legend>
                     <p>
-                        A retro Windows 98 inspired
-                        portfolio built with:
+                        A retro Windows 98 inspired portfolio built with:
                     </p>
                     <ul>
                         <li>HTML</li>
@@ -331,103 +304,39 @@
                     </ul>
                 </fieldset>
             </section>
-            <!--CYBERSECURITY-->
-            <section
-                class="portfolio-page"
-                id="tab-cybersecurity"
-            >
-                <h2>
-                    Cybersecurity
-                </h2>
-                <p>
-                    Security-related projects,
-                    experiments, and learning.
-                </p>
-                <fieldset>
-                    <legend>
-                        Security Lab
-                    </legend>
-                    <p>
-                        This section will contain
-                        cybersecurity projects,
-                        labs, tools, and experiments
-                        as I continue learning.
-                    </p>
-                </fieldset>
-            </section>
         </div>
         <!--STATUS BAR-->
         <div class="status-bar portfolio-status">
-            <p class="status-bar-field">
-                Ready
-            </p>
-            <p
-                class="status-bar-field"
-                id="status-project"
-            >
-                About Me
-            </p>
-            <p class="status-bar-field">
-                1 object
-            </p>
+            <p class="status-bar-field">Ready</p>
+            <p class="status-bar-field" id="status-project">About Me</p>
+            <p class="status-bar-field">1 object</p>
         </div>
     </div>
     <!--LANGUAGE SELECTOR-->
     <div class="desktop-language">
-        <select
-            id="language-select"
-            onchange="switchLanguage(this.value)"
-        >
-            <option value="en">
-                English
-            </option>
-            <option value="zh">
-                中文
-            </option>
-            <option value="jp">
-                日本語
-            </option>
+        <select id="language-select" onchange="switchLanguage(this.value)">
+            <option value="en">English</option>
+            <option value="zh">中文</option>
+            <option value="jp">日本語</option>
         </select>
     </div>
     <!--TASKBAR-->
     <div class="taskbar">
         <!-- Start -->
-        <button
-            class="start-button"
-            onclick="toggleStartMenu()"
-        >
-            <strong>
-                ▣
-            </strong>
+        <button class="start-button" onclick="toggleStartMenu()">
+            <img src="assets/icons/windows-0.png" style="width: 16px; height: 16px;">
             Start
         </button>
-        <!-- Quick Launch -->
-        <div class="quick-launch">
-            <button
-                title="My Computer"
-                onclick="openTab('about')"
-            >
-                💻
-            </button>
-            <button
-                title="Projects"
-                onclick="openTab('projects')"
-            >
-                📁
-            </button>
-        </div>
+        <img src="assets/icons/desktop-2.png" style="width: 16px; height: 16px;">
+        <img src="assets/icons/directory_explorer-5.png" style="width: 16px; height: 16px;">
+        <img src="assets/icons/directory_control_panel-3.png" style="width: 16px; height: 16px;">
+        <img src="assets/icons/notepad-2.png" style="width: 16px; height: 16px;">
         <!-- Open Application -->
-        <button
-            class="taskbar-window active"
-            onclick="restorePortfolio()"
-        >
-            💾 Developer Wong's Profile
+        <button class="taskbar-window active" onclick="restorePortfolio()">
+            <img src="assets/icons/html-2.png" style="width: 16px; height: 16px;">Developer Wong's Profile
         </button>
         <!-- Clock -->
-        <div
-            class="taskbar-clock"
-            id="taskbar-clock"
-        >
+        <div class="taskbar-clock" id="taskbar-clock">
             12:00 PM
         </div>
     </div>
